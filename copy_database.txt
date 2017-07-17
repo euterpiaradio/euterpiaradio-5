@@ -1,0 +1,14 @@
+Exporter la base de données à un bout, l'importer de l'autre coté.
+
+Exemple : recopie de la production ('https://euterpiaradio.ch') vers le site de développement (http://euterpiaradio.yma)
+
+update wp_options set option_value = 'http://euterpiaradio.yma' where option_name = 'siteurl';
+update wp_options set option_value = 'http://euterpiaradio.yma' where option_name = 'home';
+update wp_posts set post_content = replace(post_content, 'www.euterpiaradio.ch', 'euterpiaradio.yma');
+update wp_posts set post_content = replace(post_content, 'www.euterpia-radio.fr', 'euterpiaradio.yma');
+update wp_posts set post_content = replace(post_content, 'euterpiaradio.ch', 'euterpiaradio.yma');
+
+Se connecter au panneau d'administration de Wordpress, aller dans "Réglages" > "Général" et enregistrer sans rien
+changer.
+
+Ensuite, aller dans "Réglages" > "Permaliens" et enregistrer sans rien modifier.
